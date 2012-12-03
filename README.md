@@ -19,9 +19,12 @@ blaine@cliftonlabs.com
 
 Setup
 =====
-$ git clone http://github.com/booherbg/flask_pyglet_starter.git
+$ git clone http://github.com/booherbg/flasklet.git
+
 $ virtualenv --no-site-packages flasklet
+
 $ source flasklet/bin/activate
+
 $ pip install -r requirements.txt
 
 If you have a repository system that has a broken pyglet repo, use this:
