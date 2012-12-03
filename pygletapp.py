@@ -1,5 +1,8 @@
 '''
-    Main point of entry for the MediaDisplay engine
+    Main point of entry for the pyglet display engine
+
+    Blaine Booher 2012
+    http://github.com/booherbg/flasklet.git
 
     We are using cocos2d for the presentation layer
 '''
