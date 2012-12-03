@@ -23,9 +23,9 @@ from cocos.layer import *
 from cocos.scenes.transitions import *
 from cocos.sprite import *
 from cocos import text
-import random
 import flask_api
-import time
+from flask_api import get_ipaddresses
+
 
 FULLSCREEN = False
 WEBSERVER = True
@@ -70,6 +70,17 @@ class ForFunLayer(cocos.layer.Layer):
         title.element.color = (255, 255, 0, 255)
         self.objects.append(title)
         self.add(title)
+
+        addresses = get_ipaddresses()
+        k=0
+        for interface, ip in addresses:
+            if ip != '0.0.0.0':
+                t = text.Label("http://%s:%d (%s)" % (ip, flask_api.DEFAULT_PORT, interface), (0, (k + 1)*30+100), 
+                    font_size=20)
+                t.element.color = (255, 0, 0, 255)
+                self.add(t)
+                k += 1
+            sys.stderr.flush()
 
         # For handling of on_add_text
         flask_api.eventdispatcher.push_handlers(self)

@@ -21,7 +21,7 @@ Setup
 =====
 Requirements (debian system):
 ```bash
-# aptitude install python-dev libevent-dev
+# aptitude install python-dev libevent-dev python-pip python-virtualenv
 ```
 
 ```bash
