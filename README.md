@@ -19,11 +19,17 @@ blaine@cliftonlabs.com
 
 Setup
 =====
+Requirements (debian system):
+```bash
+# aptitude install python-dev libevent-dev
+```
+
 ```bash
 $ git clone http://github.com/booherbg/flasklet.git
 $ virtualenv --no-site-packages flasklet
 $ source flasklet/bin/activate
 $ pip install -r requirements.txt
+$ python pygletapp.py
 ```
 
 If you have a repository system that has a broken pyglet repo, use this:
