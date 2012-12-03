@@ -114,10 +114,8 @@ class ForFunLayer(cocos.layer.Layer):
         elif keyp in (key.R,):
             self.on_reset()
 
-    def reset(self, offset_text=True):
-        pass
-
     def ping(self):
+        print 'sending pong!'
         flask_api.eventdispatcher.pong()
 
 if __name__ == "__main__":

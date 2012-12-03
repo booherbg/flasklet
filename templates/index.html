@@ -17,13 +17,20 @@
     </div>
 </div>
 <div class="row">
-<div class="span4 offset4" style="padding-top: 20px">
-    <form class="form-inline">
-        <input type="text" class="input-medium" placeholder="pyglet text" name="username" id="username">
-        <a href="#" class="btn btn-primary" onclick='javascript:window.location="/add_text/"+$("#username").val()'>
-            Send To Display</a>
-    </form>
+    <div class="span4 offset4" style="padding-top: 20px">
+        <form class="form-inline">
+            <input type="text" class="input-medium" placeholder="pyglet text" name="username" id="username">
+            <a href="#" class="btn btn-primary" onclick='javascript:window.location="/add_text/"+$("#username").val()'>
+                Send To Display</a>
+        </form>
+    </div>
 </div>
+<div class="row" style="padding-top: 100px">
+    <div class="span4 offset4">
+    <a href="{{ url_for('reset') }}" class="btn btn-large btn-danger">
+        <i class="icon-random"></i> Reset Display
+    </a>
+    </div>
 </div>
 
 

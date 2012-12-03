@@ -19,6 +19,9 @@ DEFAULT_PORT = 9000
 class WebEventDispatcher(pyglet.event.EventDispatcher):
     status = 'offline'
 
+    def reset_display(self):
+        self.dispatch_event('on_reset')
+
     def change_bgcolor(self, color=None):
         self.dispatch_event('on_change_bgcolor', color)
 
@@ -26,10 +29,12 @@ class WebEventDispatcher(pyglet.event.EventDispatcher):
         self.dispatch_event('on_add_text', text)
 
     def check_status(self):
+        print 'sending ping...'
         self.dispatch_event('ping')
 
     def pong(self):
         # It's alive!
+        print 'pong!'
         self.status = 'online'
 
     def on_change_bgcolor(self, text):
@@ -40,6 +45,7 @@ class WebEventDispatcher(pyglet.event.EventDispatcher):
 
 WebEventDispatcher.register_event_type("on_change_bgcolor")
 WebEventDispatcher.register_event_type("on_add_text")
+WebEventDispatcher.register_event_type("on_reset")
 WebEventDispatcher.register_event_type("ping")
 eventdispatcher = WebEventDispatcher()
 
@@ -102,17 +108,11 @@ def change_bgcolor(color1=None, color2=None, color3=None):
     return to_index()
 
 
-@app.route("/timeout/<timeout>")
-def set_timeout(timeout):
-    try:
-        timeout = abs(float(timeout))
-    except:
-        flash("Invalid Timeout: Please use a number like 2.0", "error")
-
-    # Do the next thing
-    print '/timeout/%.2f' % timeout
-    eventdispatcher.update_timeout(timeout)
-    flash("Timeout set successfully to %.2f" % timeout, "info")
+@app.route("/reset/")
+def reset():
+    print '/reset/'
+    eventdispatcher.reset_display()
+    flash("reset_display event triggered successfully", "info")
     return to_index()
 ###################################################################
 

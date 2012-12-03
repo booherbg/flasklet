@@ -54,17 +54,11 @@
             <span class="icon-bar"></span>
           </a>
           <a class="brand" href="{{ url_for('index') }}">Flasklet Demo</a>
-          {% if g.logged_in %}
           <div class="nav-collapse collapse">
-            <ul class="nav">
-              <li class="{% block homeactive %}{% endblock homeactive %}">
-                <a href="{{ url_for('index') }}"><i class="icon-home"></i> Home</a></li>
-            </ul>
             <ul class="nav pull-right">
-              <li><a href="#">Status: {{status}}</a></li>
+              <li><a href="#">Status: {{ status }}</a></li>
             </ul>
           </div><!--/.nav-collapse -->
-          {% endif %}
         </div>
       </div>
     </div>
